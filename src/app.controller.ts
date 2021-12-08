@@ -1,4 +1,5 @@
 import { Body, Controller, Get ,Post } from '@nestjs/common';
+import { Resolver, Mutation, Args, Query, ResolveField, Parent } from '@nestjs/graphql';
 import { AppService } from './app.service';
 
 @Controller('daya')
