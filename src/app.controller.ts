@@ -13,7 +13,8 @@ export class AppController {
 
   @Get('kgg')
   getHello2(): string {
-    return this.appService.getHello();
+
+    return this.appService.getHello2();
   }
   @Get()
   getHello3(): string {
