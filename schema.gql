@@ -2,7 +2,26 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Address {
+  id: Int!
+  label: String!
+  street: String!
+  city: String!
+}
+
+type PersonType {
+  id: Int!
+  firstName: String
+  lastName: String
+  email: String!
+  addresses: [Address!]!
+  address(index: Int!): Address
+}
+
 type Query {
-  People: String!
-  Person: String!
+  people: [PersonType!]!
+}
+
+type Mutation {
+  createPerson(email: String!, lastName: String!, firstName: String!, id: Int!): PersonType!
 }

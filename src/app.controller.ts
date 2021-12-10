@@ -14,7 +14,7 @@ export class AppController {
   @Get('kgg')
   getHello2(): string {
 
-    return this.appService.getHello2();
+    return this.appService.getHello();
   }
   @Get()
   getHello3(): string {

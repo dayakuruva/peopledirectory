@@ -4,7 +4,7 @@ import { PrismaClient } from '@prisma/client';
 const {people} = new PrismaClient();
 
 @Injectable()
-export class AppService {
+export class PeopleService {
   // getHello(): string {
   //   return 'Hello World Dayasudhan kgffff!';
   // }
@@ -30,7 +30,7 @@ export class AppService {
 //     let value2;
 //     const newPeope =   people.create({
 //         data:{
-         
+      
 //           name:"dayasudhan"
 //         }
 //     });
@@ -42,4 +42,19 @@ export class AppService {
 //     console.log("value222")
 //     return "people222";
 //  }
+//  createPerson(input:string): string  {
+//   let value2;
+//   const newPeope =   people.create({
+//       data:{
+//         name:"dayasudhan"
+//       }
+//   });
+//   newPeope.then((value)=>{
+//    console.log("value222")
+//    value2 = value;
+//    console.log(value)
+//   });
+//   console.log("value222")
+//   return "people222";
+// }
 }
