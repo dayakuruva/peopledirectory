@@ -2,7 +2,7 @@ import { Resolver, Mutation, Args, Query, ResolveField, Parent,Root,Int } from '
 import { Inject } from '@nestjs/common';
 import { PeopleService } from './people.service';
 import { PersonType } from './models/person.model';
-import { Address } from './models/address.model';
+import { Address,InPutAddress } from './models/address.model';
 
 
 @Resolver(of => PersonType)

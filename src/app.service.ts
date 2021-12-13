@@ -10,20 +10,20 @@ export class AppService {
   // }
 
     getHello(): string  {
-     let value2;
-     const users =   people.findMany({
-       select:{
-         id:true,
-         name:true,
+    //  let value2;
+    //  const users =   people.findMany({
+    //    select:{
+    //      id:true,
+    //      name:true,
         
-        }
-     });
-     users.then((value)=>{
-      console.log("value")
-      value2 = value;
-      console.log(value)
-     });
-     console.log("value2")
+    //     }
+    //  });
+    //  users.then((value)=>{
+    //   console.log("value")
+    //   value2 = value;
+    //   console.log(value)
+    //  });
+    //  console.log("value2")
      return "people";
   }
 //   getHello2(): string  {

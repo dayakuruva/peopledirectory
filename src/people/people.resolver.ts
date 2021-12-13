@@ -3,6 +3,8 @@ import { Resolver, Mutation, Args, Query, ResolveField, Parent,Root, Int } from 
 import { Inject } from '@nestjs/common';
 import { PeopleService } from './people.service';
 import { PersonType } from './models/person.model';
+import { last } from 'rxjs';
+import { InPutAddress } from './models/address.model';
 @Resolver()
 export class PeopleResolver {
   constructor(
@@ -30,18 +32,22 @@ export class PeopleResolver {
       @Args({ name: 'firstName', type: () => String }) firstName: String,
       @Args({ name: 'lastName', type: () => String }) lastName: String,
       @Args({ name: 'email', type: () => String }) email: String,
-   
+      @Args({ name: 'addresses', type: () => [InPutAddress] }) addresses: InPutAddress[],
     ) 
   {
     console.log(id+" "+firstName+" "+lastName+" "+email);
-    return  {
-      id: id,
-      firstName: firstName,
-      lastName: lastName,
-      email:email,
-      addresses:[{"id":1,"label":"Home address","street":"1st street","city":"Bangalore"},
-      {"id":2,"label":"office address","street":"1st street","city":"Bangalore"}]
-    };
+    console.log(addresses)
+    let retVal = await this.peopleService.createPeople(email,firstName,lastName,addresses);
+  
+    return retVal;
+    // return  {
+    //   id: id,
+    //   firstName: firstName,
+    //   lastName: lastName,
+    //   email:email,
+    //   addresses:[{"id":1,"label":"Home address","street":"1st street","city":"Bangalore"},
+    //   {"id":2,"label":"office address","street":"1st street","city":"Bangalore"}]
+    // };
   }
     // @Query(returns => PersonType)
   // person() {

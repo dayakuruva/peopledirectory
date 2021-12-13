@@ -15,6 +15,7 @@ type PersonType {
   lastName: String
   email: String!
   addresses: [Address!]!
+  name: String
   address(index: Int!): Address
 }
 
@@ -23,5 +24,12 @@ type Query {
 }
 
 type Mutation {
-  createPerson(email: String!, lastName: String!, firstName: String!, id: Int!): PersonType!
+  createPerson(addresses: [InPutAddress!]!, email: String!, lastName: String!, firstName: String!, id: Int!): PersonType!
+}
+
+input InPutAddress {
+  id: Int!
+  label: String!
+  street: String!
+  city: String!
 }

@@ -18,6 +18,8 @@ export class PersonType {
   @Field(type => [Address])
   addresses: Address[];
 
+  @Field ({nullable: true})
+  name: string
   // @Field(type => Address)
   // addresses: Address;
 }
