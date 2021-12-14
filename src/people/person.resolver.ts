@@ -8,8 +8,12 @@ import { Address,InPutAddress } from './models/address.model';
 @Resolver(of => PersonType)
 export class PersonResolver {
 
+  // @ResolveField(returns => Address,{nullable : true})
+  // address(@Root() person: PersonType, @Args("index",{type: ()=>Int}) index: number){
+  //   return person.addresses[index] 
+  // }
   @ResolveField(returns => Address,{nullable : true})
-  address(@Root() person: PersonType, @Args("index",{type: ()=>Int}) index: number){
+  addresses(@Root() person: PersonType, @Args("index",{type: ()=>Int}) index: number){
     return person.addresses[index] 
   }
 }

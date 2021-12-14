@@ -14,17 +14,21 @@ type PersonType {
   firstName: String
   lastName: String
   email: String!
-  addresses: [Address!]!
+  addresses(index: Int!): [Address!]!
   name: String
-  address(index: Int!): Address
 }
 
 type Query {
-  people: [PersonType!]!
+  people: PersonType!
+  getPerson(id: Int!): PersonType!
+  getPeople: [PersonType!]!
 }
 
 type Mutation {
+  updatePerson(email: String!, id: Int!): PersonType!
+  removePerson(id: Int!): PersonType!
   createPerson(addresses: [InPutAddress!]!, email: String!, lastName: String!, firstName: String!, id: Int!): PersonType!
+  createPerson2(person: PersonTypeInput!): PersonType!
 }
 
 input InPutAddress {
@@ -32,4 +36,12 @@ input InPutAddress {
   label: String!
   street: String!
   city: String!
+}
+
+input PersonTypeInput {
+  id: Int!
+  firstName: String
+  lastName: String
+  email: String!
+  addresses: [InPutAddress!]!
 }
